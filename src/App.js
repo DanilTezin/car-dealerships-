@@ -1,25 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Suspense } from 'react'
+import { connect, useSelector } from 'react-redux'
+import { Route, Routes } from 'react-router-dom'
+import { getDealers } from './api'
+import DealerPersonal from './components/DealerPersonal/DealerPersonal'
+import Home from './components/Home/Home'
+import {addDealersAC} from './store/actionCreators/addDealersAC'
+import DealerList from './components/DealersList/DealerList'
+import PageNotFound from './components/PageNotFound/PageNotFound'
+import Header from './components/Header/Header'
+import "./App.css"
+class App extends Component {
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  componentDidMount(){
+    getDealers().then(data => this.props.addDealers(data))
+  }
+  
+  render() {
+    return (
+      <div>
+        <Routes>
+          <Route path="/" element={<>
+              <Header/>
+              <Home/>
+          </>}/>
+
+          <Route path='/dealers' element={<>
+          
+              <Header/>
+
+              <DealerList dealers={this.props.dealers}/></>} >
+    
+            <Route  path='?name=:name' element={<><Header/><DealerList dealers={this.props.dealers}/></>} />
+
+          </Route>
+
+          <Route  path='/dealers/:id' element={<><Header/><DealerPersonal /></>}/>
+          <Route path="*" element={<><Header/><PageNotFound/></>}/>
+
+        </Routes>
+      </div>
+    )
+  }
 }
 
-export default App;
+
+
+
+let mapStateToProps = (state) =>{
+  return {
+    dealers: state.dealers
+  }
+}
+
+let mapDispathToProps = (dispatch) =>{
+  return{
+    addDealers: (dealers) => dispatch(addDealersAC(dealers))
+  }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(App)

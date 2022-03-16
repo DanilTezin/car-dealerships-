@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.content{
+    display: flex;
+    background-color: rgb(68, 124, 255);
+    column-gap: calc(0.1em + 9vw);
+    row-gap: 1em;
+    flex-wrap: wrap;
+    font-size: 30px;
+    align-items: center;
+    padding: 20px;    
+    width: 100vw;
+    position: fixed;
+    z-index: 200;
+    transition: all 0.7s;
+}
+.linki{
+    display: flex;
+    gap: 30px;
+}
+.home{
+    margin-left: 0.1em;
+    color: rgb(248, 248, 248);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-decoration: none;
+    display: flex;
+    gap: 10px;
+}
+.logo{
+    font-weight: 700;
+    font-size: 40px;
+    color: rgb(248, 248, 248);
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.info{
+    font-weight: 700;
+    font-size: 50px;
+    color: rgb(248, 248, 248);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-decoration: none;
+    transition: all 0.4s;
+}
+.info:hover{
+    animation: rotateCar;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    color:rgb(183, 210, 236);
+}
+.links{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: rgb(248, 248, 248);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.carIcon{
+    animation: rotateCar;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rotateCar{
+    0%{
+        transform: rotate(0deg);
+    }
+    20%{
+        transform: rotate(20deg);
+    }
+    40%{
+        transform: rotate(0deg);
+    }
+    60%{
+        transform: rotate(-20deg);
+    }
+    80%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}

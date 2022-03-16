@@ -1,0 +1,76 @@
+.upButton{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    border-radius: 100px;
+    border: 1px solid rgb(200, 213, 218);
+    opacity: 0.8;
+    animation: opacityin;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    background-color: rgb(72, 166, 248);
+    transition: all 1s;
+    
+    font-size: 30px;
+    z-index: 120;
+}
+.ball{
+    position: relative;
+    animation: fadeup;
+    animation-duration: 1.4s;
+    margin: 70px 0px;
+    clip-path:margin-box;
+    animation-iteration-count: infinite;
+}
+
+.wrapButton:hover .ball{
+    animation-play-state: paused;
+    animation: allfade;
+    animation-duration: 1.4s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+.wrapButton{
+    position: fixed;
+    right: 10%;
+    bottom: 200px;
+    transition: all 1s;
+    z-index: 100;
+    animation: opacityin;
+    animation-duration: 1s;
+    
+}
+
+@keyframes fadeup{
+    from{
+        margin-top: 30px;
+    }
+    50%{
+        margin-top: 0px;
+    }
+    to{
+        margin-top: 30px;
+    }
+}
+
+@keyframes allfade{
+    from{
+        margin-top: 0px;
+    }
+    50%{
+        margin-top: 40px;
+    }
+    to{
+        margin-top:-100px;
+    }
+}
+
+@keyframes opacityin{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 0.8;
+    }
+}

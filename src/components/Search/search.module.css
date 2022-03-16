@@ -1,0 +1,28 @@
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 100px;
+    top: 1000px;
+    gap: 40px;
+}
+
+.wrapContent{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.search{
+    margin-top: calc(300px - 8vw);
+    width: calc(280px + 11vw);
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 200;
+    border-radius: 15px;
+    color: rgb(133, 159, 170);
+    border: 1px solid rgb(193, 208, 214);
+}
